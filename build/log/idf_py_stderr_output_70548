@@ -1,0 +1,77 @@
+[0;33m--- esp-idf-monitor 1.5.0 on /dev/cu.usbmodem21101 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40041a7c: ets_delay_us in ROM
+[0m
+[1;31m--- Error: read failed: [Errno 6] Device not configured[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m
+--- Core dump finished![0m
+[0m
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/esp_idf_monitor/__main__.py", line 4, in <module>
+    main()
+    ~~~~^^
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/esp_idf_monitor/idf_monitor.py", line 449, in main
+    monitor.main_loop()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/esp_idf_monitor/idf_monitor.py", line 193, in main_loop
+    self._main_loop()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/esp_idf_monitor/idf_monitor.py", line 309, in _main_loop
+    super()._main_loop()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/esp_idf_monitor/idf_monitor.py", line 241, in _main_loop
+    self.serial_handler.handle_serial_input(data, self.console_parser, self.coredump,  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                            self.gdb_helper, self._line_matcher,
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                            self.check_gdb_stub_and_run)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/esp_idf_monitor/base/serial_handler.py", line 157, in handle_serial_input
+    with coredump.check(line_strip):
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/esp_idf_monitor/base/coredump.py", line 128, in check
+    self._check_coredump_trigger_before_print(line)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/esp_idf_monitor/base/coredump.py", line 106, in _check_coredump_trigger_before_print
+    self._process_coredump()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/esp_idf_monitor/base/coredump.py", line 79, in _process_coredump
+    coredump.info_corefile()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/esp_coredump/coredump.py", line 541, in info_corefile
+    core_header_info_dict = self.get_core_header_info_dict(e_machine=self.exe_elf.e_machine)
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/esp_coredump/coredump.py", line 142, in get_core_header_info_dict
+    loader = ESPCoreDumpFileLoader(self.core, self.core_format == 'b64')
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/esp_coredump/corefile/loader.py", line 625, in __init__
+    self.target = self._load_core_src()
+                  ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/esp_coredump/corefile/loader.py", line 201, in _load_core_src
+    _header = EspCoreDumpV1Header.parse(coredump_bytes)  # first we use V1 format to get version
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/construct/core.py", line 404, in parse
+    return self.parse_stream(io.BytesIO(data), **contextkw)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/construct/core.py", line 416, in parse_stream
+    return self._parsereport(stream, context, "(parsing)")
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/construct/core.py", line 428, in _parsereport
+    obj = self._parse(stream, context, path)
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/construct/core.py", line 2236, in _parse
+    subobj = sc._parsereport(stream, context, path)
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/construct/core.py", line 428, in _parsereport
+    obj = self._parse(stream, context, path)
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/construct/core.py", line 2770, in _parse
+    return self.subcon._parsereport(stream, context, path)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/construct/core.py", line 428, in _parsereport
+    obj = self._parse(stream, context, path)
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/construct/core.py", line 1157, in _parse
+    data = stream_read(stream, self.length, path)
+  File "/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/lib/python3.13/site-packages/construct/core.py", line 178, in stream_read
+    raise StreamError("stream read less than specified amount, expected %d, found %d" % (length, len(data)), path=path)
+construct.core.StreamError: Error in path (parsing) -> tot_len
+stream read less than specified amount, expected 4, found 0

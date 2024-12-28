@@ -1,0 +1,25 @@
+[0;33m--- esp-idf-monitor 1.5.0 on /dev/cu.usbmodem21101 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x4004883b: uart_tx_one_char_uart in ROM
+[0m
+[0;33m--- 0x40376e38: __retarget_lock_acquire_recursive at /Users/tennis/esp/esp-idf-v5.3.1/components/newlib/locks.c:320
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x40376e35: __retarget_lock_acquire_recursive at /Users/tennis/esp/esp-idf-v5.3.1/components/newlib/locks.c:319
+0x42018c22: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:846 (discriminator 2)
+0x42014ea5: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x42025605: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x40380e39: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x42010c59: esp_task_wdt_reset at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/task_wdt/task_wdt.c:696 (discriminator 1)
+0x42010cd3: idle_hook_cb at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/task_wdt/task_wdt.c:460
+0x420031f9: esp_vApplicationIdleHook at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/freertos_hooks.c:46 (discriminator 1)
+0x4037bdc9: prvIdleTask at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/tasks.c:4344 (discriminator 1)
+0x4037add1: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- Initiating core dump![0m
+[0;33m--- Core dump started (further output muted)[0m
+[0;33m--- Received   1 kB...[0m[0;33m--- Received   2 kB...[0m[0;33m--- Received   3 kB...[0m[0;33m--- Received   4 kB...[0m[0;33m--- Received   5 kB...[0m[0;33m--- Received   6 kB...[0m[0;33m--- Received   7 kB...[0m[0;33m--- Received   8 kB...[0m[0;33m--- Received   9 kB...[0m[0;33m--- Received  10 kB...[0m[0;33m--- Received  11 kB...[0m[0;33m--- Received  12 kB...[0m[0;33m--- Received  13 kB...[0m[0;33m--- Received  14 kB...[0m[0;33m--- Received  15 kB...[0m[0;33m--- Received  16 kB...[0m[0;33m--- Received  17 kB...[0m[0;33m--- Received  18 kB...[0m[0;33m--- Received  19 kB...[0m[0;33m--- Received  20 kB...[0m[0;33m--- Received  21 kB...[0m[0;33m--- Received  22 kB...[0m[0;33m--- Received  23 kB...[0m[0;33m--- Received  24 kB...[0m[0;33m--- Received  25 kB...[0m[0;33m--- Received  26 kB...[0m[0;33m--- Received  27 kB...[0m[0;33m--- Received  28 kB...[0m[0;33m
+--- Core dump finished![0m
+[0m

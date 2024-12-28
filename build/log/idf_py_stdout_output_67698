@@ -1,0 +1,7 @@
+[1/4] cd /Users/tennis/src/test-squawk/build/esp-idf/esptool_py && /Users/tennis/.espressif/python_env/idf5.3_py3.13_env/bin/python /Users/tennis/esp/esp-idf-v5.3.1/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /Users/tennis/src/test-squawk/build/partition_table/partition-table.bin /Users/tennis/src/test-squawk/build/test-squawk.bin
+test-squawk.bin binary size 0x4eea0 bytes. Smallest app partition is 0x100000 bytes. 0xb1160 bytes (69%) free.
+[2/4] Performing build step for 'bootloader'
+[1/1] cd /Users/tennis/src/test-squawk/build/bootloader/esp-idf/esptool_py && /Users/tennis/.espressif/python_env/idf5.3_py3.13_env/bin/python /Users/tennis/esp/esp-idf-v5.3.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /Users/tennis/src/test-squawk/build/bootloader/bootloader.bin
+Bootloader binary size 0x5260 bytes. 0x2da0 bytes (36%) free.
+[3/4] No install step for 'bootloader'
+[4/4] Completed 'bootloader'

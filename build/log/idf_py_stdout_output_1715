@@ -1,0 +1,71 @@
+[1/5] cd /Users/tennis/src/test-squawk/build/esp-idf/esptool_py && /Users/tennis/.espressif/python_env/idf5.3_py3.13_env/bin/python /Users/tennis/esp/esp-idf-v5.3.1/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /Users/tennis/src/test-squawk/build/partition_table/partition-table.bin /Users/tennis/src/test-squawk/build/test-squawk.bin
+test-squawk.bin binary size 0xabed0 bytes. Smallest app partition is 0x100000 bytes. 0x54130 bytes (33%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /Users/tennis/src/test-squawk/build/bootloader/esp-idf/esptool_py && /Users/tennis/.espressif/python_env/idf5.3_py3.13_env/bin/python /Users/tennis/esp/esp-idf-v5.3.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /Users/tennis/src/test-squawk/build/bootloader/bootloader.bin
+Bootloader binary size 0x5260 bytes. 0x2da0 bytes (36%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] cd /Users/tennis/esp/esp-idf-v5.3.1/components/esptool_py && /opt/homebrew/bin/cmake -D IDF_PATH=/Users/tennis/esp/esp-idf-v5.3.1 -D "SERIAL_TOOL=/Users/tennis/.espressif/python_env/idf5.3_py3.13_env/bin/python;;/Users/tennis/esp/esp-idf-v5.3.1/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/Users/tennis/src/test-squawk/build -P /Users/tennis/esp/esp-idf-v5.3.1/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32s3 -p /dev/cu.usbmodem21101 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size detect 0x0 bootloader/bootloader.bin 0x10000 test-squawk.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.8.1
+Serial port /dev/cu.usbmodem21101
+Connecting...
+Chip is ESP32-S3 (QFN56) (revision v0.1)
+Features: WiFi, BLE
+Crystal is 40MHz
+MAC: f4:12:fa:5b:3f:0c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Auto-detected Flash size: 16MB
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x000bbfff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 21088 bytes to 13053...
+Writing at 0x00000000... (100 %)
+Wrote 21088 bytes (13053 compressed) at 0x00000000 in 0.4 seconds (effective 392.8 kbit/s)...
+Hash of data verified.
+Compressed 704208 bytes to 481463...
+Writing at 0x00010000... (3 %)
+Writing at 0x0001b347... (6 %)
+Writing at 0x00020e81... (10 %)
+Writing at 0x00024fad... (13 %)
+Writing at 0x000290f1... (16 %)
+Writing at 0x0002e5e2... (20 %)
+Writing at 0x00033033... (23 %)
+Writing at 0x000380be... (26 %)
+Writing at 0x0003dc08... (30 %)
+Writing at 0x000422f6... (33 %)
+Writing at 0x000472b2... (36 %)
+Writing at 0x00050a93... (40 %)
+Writing at 0x00056c23... (43 %)
+Writing at 0x0005ca1d... (46 %)
+Writing at 0x00061977... (50 %)
+Writing at 0x00066c04... (53 %)
+Writing at 0x0006b94a... (56 %)
+Writing at 0x000706ed... (60 %)
+Writing at 0x000756ec... (63 %)
+Writing at 0x0007a47c... (66 %)
+Writing at 0x0007fea5... (70 %)
+Writing at 0x00084ef0... (73 %)
+Writing at 0x00089ddc... (76 %)
+Writing at 0x0008efde... (80 %)
+Writing at 0x000950f5... (83 %)
+Writing at 0x0009bc3e... (86 %)
+Writing at 0x000a66e6... (90 %)
+Writing at 0x000acbfd... (93 %)
+Writing at 0x000b2e06... (96 %)
+Writing at 0x000b94ae... (100 %)
+Wrote 704208 bytes (481463 compressed) at 0x00010000 in 8.3 seconds (effective 676.6 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 486.6 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

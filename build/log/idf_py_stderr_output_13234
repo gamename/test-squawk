@@ -1,0 +1,325 @@
+[0;33m--- esp-idf-monitor 1.5.0 on /dev/cu.usbmodem21101 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40048839: uart_tx_one_char_uart in ROM
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4200e2f6: __swrite at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4200daa5: __sflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4200daf6: _fflush_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+0x4200e0e9: __sfvwrite_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x4201222f: __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42011c0d: _vfprintf_r at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4200e36d: vprintf at /Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x4201a005: esp_log_writev at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:210
+0x4038007d: esp_log_write at /Users/tennis/esp/esp-idf-v5.3.1/components/log/log.c:220
+0x4200ae1c: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:98 (discriminator 1)
+0x4200af1b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:143
+0x420197e3: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037a429: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x4037590c: esp_restart_noos at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_system/port/soc/esp32s3/system_internal.c:158
+[0m
+[0m

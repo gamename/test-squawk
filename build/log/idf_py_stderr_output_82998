@@ -1,0 +1,18 @@
+[0;33m--- esp-idf-monitor 1.5.0 on /dev/cu.usbmodem21101 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40048839: uart_tx_one_char_uart in ROM
+[0m
+[0;33m--- 0x4200c32d: L3_decode_scalefactors at /Users/tennis/src/test-squawk/main/minimp3.h:681
+[0m
+[0;33m--- 0x400570e8: memset in ROM
+0x400570f3: memset in ROM
+[0m
+[0;33m--- 0x4200c32a: L3_decode_scalefactors at /Users/tennis/src/test-squawk/main/minimp3.h:681
+0x4200c578: L3_decode at /Users/tennis/src/test-squawk/main/minimp3.h:1245
+0x4200c958: mp3dec_decode_frame at /Users/tennis/src/test-squawk/main/minimp3.h:1773
+0x4200cc3a: squawk at /Users/tennis/src/test-squawk/main/test-squawk.c:122
+0x4200cd4b: app_main at /Users/tennis/src/test-squawk/main/test-squawk.c:158
+0x42022b93: main_task at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/app_startup.c:208
+0x4037adc9: vPortTaskWrapper at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0m

@@ -1,0 +1,21 @@
+set(srcs 
+    "test-squawk.c" 
+)
+
+idf_component_register(
+    SRCS 
+        ${srcs}
+    INCLUDE_DIRS 
+        "."
+        "../managed_components/espressif__esp_audio_codec/test_apps/audio_codec_test/main"
+    EMBED_TXTFILES 
+        "squawk.m4a"
+    PRIV_REQUIRES 
+        esp_driver_gpio
+        esp_driver_i2s
+        esp_audio_codec 
+        esp_ringbuf 
+        esp_timer 
+        espressif__esp_audio_codec
+    WHOLE_ARCHIVE
+)
