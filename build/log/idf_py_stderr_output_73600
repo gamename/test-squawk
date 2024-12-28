@@ -1,7 +1,0 @@
-[0;33m--- esp-idf-monitor 1.5.0 on /dev/cu.usbmodem21101 115200[0m
-[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
-[0;33m--- 0x4205c66f: xPortEnterCriticalTimeoutSafe at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:581
- (inlined by) vPortEnterCriticalSafe at /Users/tennis/esp/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:588
- (inlined by) periph_module_enable at /Users/tennis/esp/esp-idf-v5.3.1/components/esp_hw_support/periph_ctrl.c:63
-[0m
-[0m
