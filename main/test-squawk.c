@@ -58,8 +58,8 @@ static float volume = 1.0f; // Volume control (0.0 to 1.0)
 
 static i2s_chan_handle_t tx_handle; // I2S transmit channel
 
-extern const uint8_t squawk_m4a_start[] asm("_binary_squawk_m4a_start");
-extern const uint8_t squawk_m4a_end[] asm("_binary_squawk_m4a_end");
+extern const uint8_t squawk_m4a_start[] asm("_binary_squawk_m4v_start");
+extern const uint8_t squawk_m4a_end[] asm("_binary_squawk_m4v_end");
 
 void configure_i2s() {
     // Configure I2S standard slot settings
@@ -149,7 +149,8 @@ static esp_audio_simple_dec_type_t get_simple_decoder_type(const uint8_t *data, 
 }
 
 static void get_simple_decoder_config(esp_audio_simple_dec_cfg_t *cfg) {
-    simp_dec_all_t *all_cfg = (simp_dec_all_t *)&cfg->dec_cfg;
+    simp_dec_all_t *all_cfg = (simp_dec_all_t *)cfg->dec_cfg;
+
     switch (cfg->dec_type) {
     case ESP_AUDIO_SIMPLE_DEC_TYPE_M4A: {
         esp_m4a_dec_cfg_t *m4a_cfg = &all_cfg->m4a_cfg;

@@ -9,7 +9,7 @@ idf_component_register(
         "."
         "../managed_components/espressif__esp_audio_codec/test_apps/audio_codec_test/main"
     EMBED_TXTFILES 
-        "squawk.m4a"
+        "squawk.m4v"
     PRIV_REQUIRES 
         esp_driver_gpio
         esp_driver_i2s
