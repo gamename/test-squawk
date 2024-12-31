@@ -303,20 +303,6 @@ int audio_simple_decoder_test(esp_audio_simple_dec_type_t type, audio_codec_test
     return ret;
 }
 
-int audio_simple_decoder_test_embedded(codec_write_cb writer, audio_info_t *info) {
-    size_t file_size = squawk_m4a_end - squawk_m4a_start;
-    read_ctx.data = (uint8_t *)squawk_m4a_start;
-    read_ctx.size = file_size;
-    read_ctx.read_size = 0;
-
-    audio_codec_test_cfg_t dec_cfg = {
-        .read = encoder_read_pcm,
-        .write = writer,
-    };
-
-    return audio_simple_decoder_test(ESP_AUDIO_SIMPLE_DEC_TYPE_M4A, &dec_cfg, info);
-}
-
 // First, uncomment and update the cleanup function
 void cleanup_i2s() {
     if (tx_handle) {
@@ -335,14 +321,24 @@ void squawk() {
 
     audio_info_t info = {0};
     configure_i2s();
-    if (audio_simple_decoder_test_embedded(simple_decoder_write_pcm, &info) != 0) {
+
+    // Set up decoder configuration
+    size_t file_size = squawk_m4a_end - squawk_m4a_start;
+    read_ctx.data = (uint8_t *)squawk_m4a_start;
+    read_ctx.size = file_size;
+    read_ctx.read_size = 0;
+
+    audio_codec_test_cfg_t dec_cfg = {
+        .read = encoder_read_pcm,
+        .write = simple_decoder_write_pcm,
+    };
+
+    // Play audio
+    if (audio_simple_decoder_test(ESP_AUDIO_SIMPLE_DEC_TYPE_M4A, &dec_cfg, &info) != 0) {
         ESP_LOGW(TAG, "Playback failed for embedded file");
-    } else {
-        ESP_LOGI(TAG, "Playback succeeded for embedded file");
     }
 
-    cleanup_i2s(); // Call cleanup after playback
-
+    cleanup_i2s();
     ESP_LOGI(TAG, "Free heap size after playback: %lu", esp_get_free_heap_size());
 }
 
