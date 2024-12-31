@@ -114,29 +114,10 @@ void configure_i2s() {
     // Configure GAIN pin - LOW for 12dB, HIGH for 15dB
     io_conf.pin_bit_mask = (1ULL << GAIN_PIN);
     gpio_config(&io_conf);
-    gpio_set_level(GAIN_PIN, 0); // Start with lower gain
+    gpio_set_level(GAIN_PIN, 1); // Start with lower gain
 
     ESP_LOGI(TAG, "I2S configured successfully");
 }
-
-void set_gain(bool high_gain) {
-    gpio_set_level(GAIN_PIN, high_gain ? 1 : 0);
-    ESP_LOGI(TAG, "Gain set to %s", high_gain ? "9dB" : "3dB");
-}
-
-void enable_amplifier(bool enable) {
-    gpio_set_level(I2S_SD_PIN, enable ? 1 : 0);
-    ESP_LOGI(TAG, "Amplifier %s", enable ? "enabled" : "disabled");
-}
-
-// void cleanup_i2s() {
-//     if (tx_handle) {
-//         i2s_channel_disable(tx_handle);
-//         i2s_channel_del(tx_handle);
-//     }
-//     gpio_set_level(I2S_SD_PIN, 0); // Disable amplifier
-//     ESP_LOGI(TAG, "I2S resources cleaned up");
-// }
 
 static esp_audio_simple_dec_type_t get_simple_decoder_type(const uint8_t *data, size_t size) {
     // For embedded files, assume M4A format
@@ -177,20 +158,28 @@ static int adjust_volume(uint8_t *data, int size, float volume) {
 }
 
 static int simple_decoder_write_pcm(uint8_t *data, int size) {
-    // Convert 16-bit samples to 32-bit
-    int32_t *buffer = malloc(size * 2); // Twice the size for 32-bit
+    int32_t *buffer = malloc(size * 2);
     if (buffer == NULL) {
         ESP_LOGE(TAG, "Failed to allocate conversion buffer");
         return 0;
     }
 
-    int samples = size / 2; // Number of 16-bit samples
+    int samples = size / 2;
     int16_t *input = (int16_t *)data;
 
-    // Convert and apply volume
+    // Add digital gain (1.5x boost) while checking for clipping
+    const float digital_gain = 1.5f; // Increase this carefully
     for (int i = 0; i < samples; i++) {
-        // First cast to int32_t, then shift, then apply volume
-        buffer[i] = (int32_t)((int32_t)input[i] << 16) * volume;
+        int32_t sample = (int32_t)input[i];
+        // Apply volume and digital gain with clipping protection
+        sample = (int32_t)(sample * volume * digital_gain);
+        // Clip to 16-bit bounds
+        if (sample > 32767)
+            sample = 32767;
+        if (sample < -32768)
+            sample = -32768;
+        // Shift to 32-bit position
+        buffer[i] = sample << 16;
     }
 
     size_t bytes_written = 0;
@@ -202,7 +191,7 @@ static int simple_decoder_write_pcm(uint8_t *data, int size) {
         return 0;
     }
 
-    return bytes_written / 2; // Return original size equivalent
+    return bytes_written / 2;
 }
 
 int audio_simple_decoder_test(esp_audio_simple_dec_type_t type, audio_codec_test_cfg_t *cfg, audio_info_t *info) {
@@ -328,6 +317,19 @@ int audio_simple_decoder_test_embedded(codec_write_cb writer, audio_info_t *info
     return audio_simple_decoder_test(ESP_AUDIO_SIMPLE_DEC_TYPE_M4A, &dec_cfg, info);
 }
 
+// First, uncomment and update the cleanup function
+void cleanup_i2s() {
+    if (tx_handle) {
+        i2s_channel_disable(tx_handle);
+        i2s_del_channel(tx_handle); // Updated to use correct deletion function
+        tx_handle = NULL;           // Clear the handle after deletion
+    }
+    gpio_set_level(I2S_SD_PIN, 0); // Disable amplifier
+    gpio_set_level(GAIN_PIN, 0);   // Reset gain pin
+    ESP_LOGI(TAG, "I2S resources cleaned up");
+}
+
+// Then update the squawk function to use cleanup
 void squawk() {
     ESP_LOGI(TAG, "Free heap size before playback: %lu", esp_get_free_heap_size());
 
@@ -339,7 +341,7 @@ void squawk() {
         ESP_LOGI(TAG, "Playback succeeded for embedded file");
     }
 
-    // cleanup_i2s();
+    cleanup_i2s(); // Call cleanup after playback
 
     ESP_LOGI(TAG, "Free heap size after playback: %lu", esp_get_free_heap_size());
 }
