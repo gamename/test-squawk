@@ -194,7 +194,7 @@ static int simple_decoder_write_pcm(uint8_t *data, int size) {
     return bytes_written / 2;
 }
 
-int audio_simple_decoder_test(esp_audio_simple_dec_type_t type, audio_codec_test_cfg_t *cfg, audio_info_t *info) {
+int audio_decoder(esp_audio_simple_dec_type_t type, audio_codec_test_cfg_t *cfg, audio_info_t *info) {
     esp_audio_dec_register_default();
     int ret = esp_audio_simple_dec_register_default();
     int max_out_size = 4096;
@@ -334,7 +334,7 @@ void squawk() {
     };
 
     // Play audio
-    if (audio_simple_decoder_test(ESP_AUDIO_SIMPLE_DEC_TYPE_M4A, &dec_cfg, &info) != 0) {
+    if (audio_decoder(ESP_AUDIO_SIMPLE_DEC_TYPE_M4A, &dec_cfg, &info) != 0) {
         ESP_LOGW(TAG, "Playback failed for embedded file");
     }
 
