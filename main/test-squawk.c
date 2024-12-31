@@ -44,14 +44,14 @@ static read_ctx_t read_ctx;
 
 static const char *TAG = "SQUAWK_PLAYER";
 
-#define SAMPLE_RATE 44100 // Audio sample rate
+#define SAMPLE_RATE 48000 // Try higher sample rate
 #define I2S_BUFFER_SIZE 4096
 
-#define I2S_WS_PIN GPIO_NUM_5  // LRC
 #define I2S_BCK_PIN GPIO_NUM_6 // BCLK
+#define I2S_WS_PIN GPIO_NUM_5  // LRC/LRCLK
 #define I2S_DO_PIN GPIO_NUM_7  // DIN
-#define GAIN_PIN GPIO_NUM_9    // GAIN
-#define I2S_SD_PIN GPIO_NUM_10 // SD
+#define I2S_SD_PIN GPIO_NUM_10 // SD (Shutdown, active high)
+#define GAIN_PIN GPIO_NUM_9    // GAIN (Low=12dB, High=15dB gain)
 
 static bool play_audio = false;
 static float volume = 1.0f; // Volume control (0.0 to 1.0)
@@ -64,9 +64,12 @@ extern const uint8_t squawk_m4a_end[] asm("_binary_squawk_m4v_end");
 void configure_i2s() {
     // Configure I2S standard slot settings
     i2s_std_slot_config_t slot_cfg = {
-        .data_bit_width = I2S_DATA_BIT_WIDTH_16BIT,
-        .slot_mode = I2S_SLOT_MODE_MONO, // Use MONO for MAX98357A
-        .slot_mask = I2S_STD_SLOT_LEFT,  // Left channel for mono
+        .data_bit_width = I2S_DATA_BIT_WIDTH_32BIT, // Try 32-bit width
+        .slot_mode = I2S_SLOT_MODE_STEREO,
+        .slot_mask = I2S_STD_SLOT_LEFT, // Just use left channel since MAX98357A mixes internally
+        .ws_width = 32,                 // Match the bit width
+        .ws_pol = false,                // Standard polarity
+        .bit_shift = false,             // Disable bit shift to maintain signal integrity
     };
 
     // Configure I2S standard configuration
@@ -75,6 +78,7 @@ void configure_i2s() {
         .slot_cfg = slot_cfg,
         .gpio_cfg =
             {
+                .mclk = I2S_GPIO_UNUSED, // MAX98357 doesn't need MCLK
                 .bclk = I2S_BCK_PIN,
                 .ws = I2S_WS_PIN,
                 .dout = I2S_DO_PIN,
@@ -86,40 +90,31 @@ void configure_i2s() {
     i2s_chan_config_t chan_config = {
         .id = I2S_NUM_0,
         .role = I2S_ROLE_MASTER,
-        .dma_desc_num = 4,    // DMA descriptor count
-        .dma_frame_num = 512, // Samples per DMA frame
+        .dma_desc_num = 32,   // More descriptors
+        .dma_frame_num = 128, // Smaller frames for better control
+        .auto_clear = true,
     };
 
-    // Create the transmit channel
-    esp_err_t err = i2s_new_channel(&chan_config, &tx_handle, NULL);
-    if (err != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to create I2S channel: %s", esp_err_to_name(err));
-        return;
-    }
+    // Initialize I2S
+    ESP_ERROR_CHECK(i2s_new_channel(&chan_config, &tx_handle, NULL));
+    ESP_ERROR_CHECK(i2s_channel_init_std_mode(tx_handle, &i2s_config));
+    ESP_ERROR_CHECK(i2s_channel_enable(tx_handle));
 
-    // Initialize the transmit channel in standard mode
-    err = i2s_channel_init_std_mode(tx_handle, &i2s_config);
-    if (err != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to initialize I2S channel: %s", esp_err_to_name(err));
-        return;
-    }
+    // Configure SD pin - must be HIGH for audio output
+    gpio_config_t io_conf = {
+        .pin_bit_mask = (1ULL << I2S_SD_PIN),
+        .mode = GPIO_MODE_OUTPUT,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_DISABLE,
+    };
+    gpio_config(&io_conf);
+    gpio_set_level(I2S_SD_PIN, 1); // Enable the amplifier
 
-    // Enable the transmit channel
-    err = i2s_channel_enable(tx_handle);
-    if (err != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to enable I2S channel: %s", esp_err_to_name(err));
-        return;
-    }
-
-    // Configure SD pin for controlling the amplifier
-    gpio_reset_pin(I2S_SD_PIN);
-    gpio_set_direction(I2S_SD_PIN, GPIO_MODE_OUTPUT);
-    gpio_set_level(I2S_SD_PIN, 1); // Enable the amplifier by default
-
-    // Configure GAIN pin for controlling the gain
-    gpio_reset_pin(GAIN_PIN);
-    gpio_set_direction(GAIN_PIN, GPIO_MODE_OUTPUT);
-    gpio_set_level(GAIN_PIN, 0); // Set default gain to low (3dB)
+    // Configure GAIN pin - LOW for 12dB, HIGH for 15dB
+    io_conf.pin_bit_mask = (1ULL << GAIN_PIN);
+    gpio_config(&io_conf);
+    gpio_set_level(GAIN_PIN, 0); // Start with lower gain
 
     ESP_LOGI(TAG, "I2S configured successfully");
 }
@@ -182,10 +177,34 @@ static int adjust_volume(uint8_t *data, int size, float volume) {
 }
 
 static int simple_decoder_write_pcm(uint8_t *data, int size) {
-    adjust_volume(data, size, volume);
-    write_ctx.decode_size += size;
-    return size;
+    // Convert 16-bit samples to 32-bit
+    int32_t *buffer = malloc(size * 2); // Twice the size for 32-bit
+    if (buffer == NULL) {
+        ESP_LOGE(TAG, "Failed to allocate conversion buffer");
+        return 0;
+    }
+
+    int samples = size / 2; // Number of 16-bit samples
+    int16_t *input = (int16_t *)data;
+
+    // Convert and apply volume
+    for (int i = 0; i < samples; i++) {
+        // First cast to int32_t, then shift, then apply volume
+        buffer[i] = (int32_t)((int32_t)input[i] << 16) * volume;
+    }
+
+    size_t bytes_written = 0;
+    esp_err_t ret = i2s_channel_write(tx_handle, buffer, size * 2, &bytes_written, portMAX_DELAY);
+    free(buffer);
+
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to write I2S data: %s", esp_err_to_name(ret));
+        return 0;
+    }
+
+    return bytes_written / 2; // Return original size equivalent
 }
+
 int audio_simple_decoder_test(esp_audio_simple_dec_type_t type, audio_codec_test_cfg_t *cfg, audio_info_t *info) {
     esp_audio_dec_register_default();
     int ret = esp_audio_simple_dec_register_default();
